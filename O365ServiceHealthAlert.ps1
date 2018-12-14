@@ -124,32 +124,6 @@ $htmlHeader = "
             </p>
 "
 
-# String manipulation function because the Message Text in response from the API will have TiTle, User Impact, Current Status, Scope of Impact
-# and Next Update will all be in a single string. We want to separate the text and show in specific table rows.
-function Get-ExtricatedText {
-    param (
-        [string]$inputMessageText = "" , # This parameter will require case sensitive string
-        [string]$startString = "",
-        [string]$endString = ""
-    )
-
-    if($inputMessageText -ne $null) {
-        
-    try {
-
-        $startIndex = $inputMessageText.IndexOf($startString, 0)
-        $endIndex = $inputMessageText.IndexOf($endString, 0)
-        $textLength = $endIndex - $startIndex
-        $extricatedText = $inputMessageText.Substring($startIndex, $textLength)
-
-    } catch {
-
-        Write-Log -Level ERROR -Message $_.Exception
-    }
-    
-    }
-    return $extricatedText
-}
 
 
 # Function to write log file 
@@ -184,6 +158,34 @@ function Write-Log {
     }
     
 }
+
+# String manipulation function because the Message Text in response from the API will have TiTle, User Impact, Current Status, Scope of Impact
+# and Next Update will all be in a single string. We want to separate the text and show in specific table rows.
+function Get-ExtricatedText {
+    param (
+        [string]$inputMessageText = "" , # This parameter will require case sensitive string
+        [string]$startString = "",
+        [string]$endString = ""
+    )
+
+    if($inputMessageText -ne $null) {
+        
+    try {
+
+        $startIndex = $inputMessageText.IndexOf($startString, 0)
+        $endIndex = $inputMessageText.IndexOf($endString, 0)
+        $textLength = $endIndex - $startIndex
+        $extricatedText = $inputMessageText.Substring($startIndex, $textLength)
+
+    } catch {
+
+        Write-Log -Level ERROR -Message $_.Exception
+    }
+    
+    }
+    return $extricatedText
+}
+
 
 #Function to get access token using client credentials
 function Get-AccessToken(){
