@@ -310,7 +310,7 @@ if ($dgdService.Classification -eq "Incident")
         {
             $degradationServicesTable += "
                                     <tr>
-                                    <th>Last Update</th>
+                                    <th>Current Status</th>
                                     <td>$($currentStatus.Trim("Current status:"))</td>
                                     </tr>
                                     "
@@ -413,7 +413,7 @@ if ($rtdService.Classification -eq "Incident")
         {
             $restoringServicesTable += "
                                     <tr>
-                                    <th>Last Update</th>
+                                    <th>Current Status</th>
                                     <td>$($currentStatus.Trim("Current status:"))</td>
                                     </tr>
                                     "
@@ -542,7 +542,7 @@ if ($rtdService.Classification -eq "Incident")
      {
         $restoredServicesTable += "
                                 <tr>
-                                <th>Last Update</th>
+                                <th>Current Status</th>
                                 <td>$($currentStatus.Trim("Current status:"))</td>
                                 </tr>
                                 "
