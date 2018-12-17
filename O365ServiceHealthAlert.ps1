@@ -2,7 +2,7 @@
 .SYNOPSIS
 Office 365 Service Health Alert
 .DESCRIPTION 
-Office 365 Service Health is a reporting and alerting solution. I like to refer it as Solution as it just not only uses Office 365 Service Communications API but is written in PowerShell and uses HTML and CSS for conditional formatting. 
+Office 365 Service Health is a reporting and alerting solution. I like to refer it as solution because not only uses Office 365 Service Communications API and is written in PowerShell but it also uses HTML and CSS for conditional formatting. And, exception handling and logging capability for debugging to troubleshooting.
 
 We can generate a HTML output report or schedule it to run on periodic intervals with the help of Windows Task Scheduler. 
 
@@ -10,9 +10,7 @@ We can also add small snippet of code at the end to Send Email Alert Notificatio
 
 Though Office 365 Service Health does not give tenant specific information. This solution can be modified later to incorporate new functionalities that will be rolled out by Microsoft - Like to include user count of an affected tenant.
 
-The Solution uses JSON Config file to load the configuration like Application ID, Client Secret, AAD Instance, TenantDomain and Log file path. 
-
-The Solution has exception handling and logging capability for debugging to troubleshooting.
+The Solution uses JSON Config file to load the configuration like Application ID, Client Secret, AAD Instance, TenantDomain and Log file path.
 
 .OUTPUTS
 HTML Output file or we can use Send-MailMessage to send an email.
