@@ -41,7 +41,7 @@ SOFTWARE.
 
 
 # Load configuration file
-$configObj = Get-Content ".\appsettings.json" | ConvertFrom-Json
+$configObj = Get-Content "appsettings.json" | ConvertFrom-Json
 
 # Initialize variables with config data
 $clientID = $configObj.ClientId
@@ -187,11 +187,11 @@ function Get-ExtricatedText {
 
 #Function to get access token using client credentials
 function Get-AccessToken(){
-
-    $body = @{grant_type="client_credentials";resource=$resource;client_id=$clientID;client_secret=$clientSecret}
+    $scope = "https://manage.office.com/.default"
+    $body = @{grant_type="client_credentials";scope=$scope;client_id=$clientID;client_secret=$clientSecret}
     try {
-
-        $oauth = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantDomain/oauth2/token?api-version=1.0 -Body $body
+        $url = $("{0}{1}/oauth2/v2.0/token" -f $loginURL, $tenantDomain)
+        $oauth = Invoke-RestMethod -Method Post -Uri $url -Body $body
     }
     catch {
         
