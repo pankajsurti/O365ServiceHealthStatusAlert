@@ -1,3 +1,6 @@
+Fixed some original script errors specially gettting an Auth Token.
+
+
 Office 365 Service Health is a reporting and alerting solution. Because of its design and functionality, I like to refer it as Solution. It uses Office 365 Service Communications API.
 It uses PowerShell, HTML and CSS for conditional formatting. We can generate a HTML output report or schedule it to run on periodic intervals with the help of Windows Task Scheduler. 
 
